@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateNarasumbersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('narasumbers', function (Blueprint $table) {
+            $table->increments('id_narasumber');
+            $table->string('nama');
+            $table->string('bidang');
+            $table->string('instansi');
+            $table->string('no_tlp');
+            $table->string('email');
+            $table->integer('nilai')->nullable();
+            $table->datetime('deleted_at')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('narasumbers');
+    }
+}
